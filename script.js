@@ -30,7 +30,7 @@ button.addEventListener('click', function(){
         message = 'HO VINTO IO SFIGATO!'
     }
     // 9
-    victory.innerText = message
+    victory.innerText = message + ' risultato utente: ' + resultUser + ' risultato computer: ' + resultCpu
 })
 // 1 Creo una lista di email confermate
 // 2 recupero gli elementi dal DOM
