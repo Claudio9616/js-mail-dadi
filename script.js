@@ -1,19 +1,21 @@
 const button = document.getElementById('button')
-
+const victory = document.getElementById('vincitore')
 button.addEventListener('click', function(){
     let resultUser = ''
-    for (let i = 1; i <= 1; i++){
-        resultUser = Math.floor(Math.random() * 6) + 1
-        console.log(resultUser, 'resultUser')
-    }
     let resultCpu = ''
-    for (let i = 1; i <= 1; i++){
-        resultCpu = Math.floor(Math.random() * 6) + 1
-        console.log(resultCpu, 'resultCpu')
+    let message = ''
+    resultUser = Math.floor(Math.random() * 6) + 1
+    console.log(resultUser, 'resultUser')
+    resultCpu = Math.floor(Math.random() * 6) + 1
+    console.log(resultCpu, 'resultCpu')
+    if(resultUser > resultCpu){
+        message = 'HAI VINTO TU....'
+    } else {
+        message = 'HO VINTO IO SFIGATO!'
     }
-
-
+    victory.innerText = message
 })
+
 
 
 
