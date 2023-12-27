@@ -32,20 +32,24 @@ button.addEventListener('click', function(){
     // 9
     victory.innerText = message + ' risultato utente: ' + resultUser + ' risultato computer: ' + resultCpu
 })
+
+// EMAIL
 // 1 Creo una lista di email confermate
 // 2 recupero gli elementi dal DOM
 // 3 creo la lista degli eventi al click del bottone
 // 4 recupero il valore che l'utente mi ha fornito
-// 5 recupero i valori dalla lista
-// 6 determino la verifica del confronto delle email
-// 7 preparo il messaggio
-// 8 stampo il messaggio in console
-// EMAIL
+// 4b faccio la validazione della mail
+// 5 mi preparo una variabile per usarla nella verifica del confronto delle mail
+// 6 recupero i valori dalla lista
+// 7 determino la verifica del confronto delle email
+// 8 preparo il messaggio
+// 9 stampo il messaggio in console
+
 // 1
 const email = ['ciccio.pasticcio@libero.it',
- 'pasticcio.ciccio@gmail.com',
-  'moana.pozzi@bigbird.it',
-   'martina.smeraldi@verybigbird.it']
+ 'diego.maradona@libero.it',
+  'peter.parker@gmail.com',
+   'arthur.morgan@gmail.com']
 //    2
 const emailUser = document.getElementById('email')
 const emailButton = document.getElementById('mail-button')
@@ -53,17 +57,33 @@ const text = document.getElementById('text')
 // 3
 emailButton.addEventListener('click', function(){
     // 4
-const emailDichiarata = emailUser.value
+const emailDichiarata = emailUser.value.trim()
 console.log(emailDichiarata)
-// 5, 6, 7
-let message1 = 'Intruso'
-const emailAsd = [email]
-console.log(emailAsd)
-if(emailAsd === emailDichiarata){
-    message1 = 'puoi accedere'
+// 4b
+if (!emailDichiarata){
+    alert('Email non valida')
+    return
 }
-// 8
-text.innerText = message1
+// 5
+let userAutorizzato = false
+// 6
+for(let i = 0; i < email.length && !userAutorizzato; i++){
+    console.log(email[i])
+    let messageForUser
+    // 7, 8
+if (emailDichiarata === email[i]){
+    userAutorizzato = true
+    console.log('Benvenuto ', emailDichiarata)
+    console.log(userAutorizzato)
+    messageForUser = 'Benvenuto ' + emailDichiarata
+} else if(!userAutorizzato){
+    console.log('Non puoi entrare ', emailDichiarata)
+    console.log(userAutorizzato)
+    messageForUser = 'Non sei autorizzato '+ emailDichiarata
+}
+// 9
+text.innerText = messageForUser
+}
 })
 
 
